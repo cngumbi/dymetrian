@@ -1,4 +1,5 @@
 import os
+
 class Configuration(object):
     APPLICATION_DIR = os.path.dirname(os.path.realpath(__file__))                   #applicatioon directory
     DEBUG = True                                                                    #the debug is set to true
