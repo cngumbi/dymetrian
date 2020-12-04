@@ -27,9 +27,9 @@
 							<li>
 								<a href="#" class="icon solid fa-angle-down">product | service</a>
 								<ul>
-									<li><a href="#">About Us</a></li>
+									<li><a href="{{ url_for('about')}}">About Us</a></li>
 									<li><a href="#">Contact</a></li>
-									<li><a href="#">Products</a></li>
+									<li><a href="{{ url_for('products')}}">Products</a></li>
 									<li>
 										<a href="#">Services</a>
 										<ul>
@@ -46,15 +46,7 @@
 					</nav>
 				</header>
 
-			<!-- Banner -->
-				<section id="banner">
-					<h2>DYMETRIAN TECHNOLOGIES LIMITED</h2>
-					<p>For a better tomorrow.</p>
-					<ul class="actions special">
-						<li><a href="#" class="button primary">Sign Up</a></li>
-						<li><a href="#" class="button">Learn More</a></li>
-					</ul>
-                </section>
+			
                 {% block content %}{% endblock %}
             </div>
 

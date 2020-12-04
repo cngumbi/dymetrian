@@ -5,3 +5,13 @@ app = Flask(__name__)
 @app.route("/home")
 def dymetrian():
     return render_template('index.html')
+
+
+@app.route("/about/")
+def about():
+    return render_template('generic.html')
+
+
+@app.route("/products/")
+def products():
+    return render_template('elements.html')
