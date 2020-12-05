@@ -7,7 +7,7 @@ from flask import Flask #, render_template, url_for, redirect, request
 
 #custome modules
 #from config import Configuration
-def dymetrian_app(test_config=None):
+def create_app(test_config=None):
     #create and configure the dymetrian application
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
@@ -19,7 +19,7 @@ def dymetrian_app(test_config=None):
         app.config.form_pyfile('config.py',silent=True)
     else:
         #load test config
-        App.config.from_mapping(test_config)
+        app.config.from_mapping(test_config)
 
 
     #ensure instane folde exist
@@ -27,6 +27,12 @@ def dymetrian_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
+
+    @app.route('/hello')
+    def hello():
+        return 'hello christopher'
+
+    return app
 
 
 #app = Flask(__name__)
@@ -43,7 +49,7 @@ SQLALCHEMY_DATABASE_URI = 'sqlite:///%s/dymetrian.db'"""
 
 manager = Manager(app)
 manager.add_command('db', MigrateCommand)"""
-@app.route("/")
+"""@app.route("/")
 @app.route("/home")
 def dymetrian():
     return render_template('index.html')
@@ -57,5 +63,5 @@ def about():
 @app.route("/products/")
 def products():
     return render_template('elements.html')
-
+"""
 
